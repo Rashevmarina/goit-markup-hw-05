@@ -712,18 +712,20 @@ body {
     background-color: rgba(46, 47, 66, 0.4);
     transition: opacity 250ms cubic-bezier(0.4, 0, 0.2, 1), visibility 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
-
+.is-hidden {
+    opacity: 0;
+    pointer-events: none;
+    visibility: hidden;
+  }
 .modal {
-    position: relative;
-    margin-bottom: 8px;
-    padding: 72px 24px 24px 24px;
     position: absolute;
+    padding: 72px 24px 24px 24px;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%) scale(1);
     width: 408px;
     min-height: 584px;
-    background: #fcfcfc;
+    background-color: #fcfcfc;
     border-radius: 4px;
     transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
     box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.14), 0px 1px 3px rgba(0, 0, 0, 0.12), 0px 2px 1px rgba(0, 0, 0, 0.2);
@@ -735,7 +737,7 @@ body {
     justify-content: center;
     background-color: #e7e9fc;
     position: absolute;
-    top: 54px;
+    top: 24px;
     right: 24px;
     width: 24px;
     height: 24px;
@@ -770,20 +772,16 @@ body {
     font-style: normal;
     font-weight: 500;
     font-size: 16px;
-    line-height: 24px;
+    line-height: 1.5px;
     letter-spacing: 0.02em;
     color: #2E2F42;
-    margin-top: 102px;
     margin-bottom: 16px; 
 }
 
 .label-main {
-    display: block;
     margin-bottom: 8px;
-
 }
 .label-main-comment {
-    display: block;
 margin-bottom: 16px;
 }
 
@@ -797,37 +795,49 @@ margin-bottom: 16px;
     max-width: 408px;
     background: #FCFCFC;
     width: 100%; 
-    margin-top: 16px;
-  
-    
+    margin-top: 16px;  
 }
 
 .form:focus-within {
     border-color: #2196f3;
 }
-
-input#user-name {
+.form-input {
+    display: block;
     width: 340px;
     height: 40px;
-}
-
-.form-input {
     outline: transparent;
-    padding-left: 38px;
+    text-indent: 38px;
     color: rgba(46, 47, 66, 0.4);
-    border: 1px solid #212121;
     border-radius: 4px;
-    height: 40px;
     border: 1px solid rgba(46, 47, 66, 0.4);
+    background-color: transparent;
+    transition: border-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+    resize: none; 
+    padding-left: 38px;
+}
+.form-input-textarea {
+    display: block;
+    resize: none;
+    width: 360px;
+    height: 120px;
+    font-size: 12px;
+    line-height: 1.17;
+    letter-spacing: 0.04em;
+    padding: 8px 16px;
+    color: rgba(46, 47, 66, 0.4);
+    border: 1px solid rgba(46, 47, 66, 0.2);
+    border-radius: 4px;
     background-color: transparent;
     outline: transparent;
     transition: border-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
-    resize: none; 
-  
+ 
 }
 .form-input:focus {
     border-color: #4D5AE5;
 }
+.form-input-textarea:focus {
+    border-color: #4D5AE5;
+} 
 
 .form-input::placeholder {
     color: #616161;
@@ -839,28 +849,23 @@ input#user-name {
     letter-spacing: 0.04em;
     color: rgba(46, 47, 66, 0.4);
 }
-.label-name {
-    display: block;
-    position: relative;
+.form-input-textarea::placeholder {
+    color: #8e8f99;
     font-size: 12px;
     line-height: 1.17;
     letter-spacing: 0.04em;
+}
+.label-name {
+    display: block;
+    position: relative;
     color: #8e8f99;
     margin-bottom: 4px;
+    line-height: 1.17;
+    letter-spacing: 0.04em;
 }
 
 .label-name:focus-within {
     color: #2196f3;
-}
-
-.label-text {
-    font-family: var(--primary-font);
-    font-style: normal;
-    font-weight: 400;
-    font-size: 12px;
-    line-height: 14px;
-    letter-spacing: 0.01em;
-    color: #8E8F99;
 }
 
 input::placeholder {
@@ -910,10 +915,9 @@ input::placeholder {
     background-color: var(--active-accent-background-color);
 }
 .privacy {
-    margin-left: 2px;
     margin-bottom: 24px; 
-   
 }
+
 
 .input-checkbox {
     display: flex;
@@ -928,10 +932,7 @@ input::placeholder {
     line-height: 1.17;;
     letter-spacing: 0.04em;
     color: #8e8f99;
-    transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1),
-        border 250ms cubic-bezier(0.4, 0, 0.2, 1),
-        fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
-}
+    }
 
 .text-checkbox {
     display: inline-flex;
@@ -951,10 +952,8 @@ input::placeholder {
 
 .privacy-link {
     color: #4D5AE5;
-    font-family: var(--primary-font);
-    font-weight: 400;
     font-size: 12px;
-    line-height: calc(16 / 12);
+    line-height: 1.33;
     letter-spacing: 0.04em;
     text-decoration-line: underline;
 }
@@ -964,7 +963,11 @@ input::placeholder {
   border: none;
   fill: #F4F4FD; ;
 }
-
+.icon-checkbox {
+        display: inline-block;
+        border-radius: 2px;
+        fill: #fcfcfc;
+}
 
 /* ______footer input_________ */
 
