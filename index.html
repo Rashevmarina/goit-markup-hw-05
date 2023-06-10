@@ -453,15 +453,15 @@
         <p class="input-title">Leave your contacts and we will call you back</p>
         <form class="form" name="issue_report_form" autocomplete="off">
           <div class="label-main">
-            <label class="label-name" for="name">
+            <label class="label-name" for="user-name" user-name="name">
               <span class="label-text">Name</span>
             </label>
             <div class="input-conteiner">
               <input
+                id="user-name" 
+                name="user-name"
                 class="form-input"
                 type="text"
-                name="name"
-                id="name"
                 placeholder=" "
                 autofocus
               />
@@ -502,30 +502,30 @@
               </svg>
             </div>
           </div>
-          <div class="label-main">
-            <label class="label-name" for="Comment"
+          <div class="label-main-comment">
+            <label class="label-name" for="user-comment" 
               ><span class="label-text">Comment</span>
             </label>
-            <div class="input-conteiner">
+            
               <textarea
                 class="form-input"
                 rows="7"
-                name="description"
-                id="Comment"
+                name="user-comment" 
+                id="user-comment"
                 placeholder="Text input"
               ></textarea>
-            </div>
+            
           </div>
 
           <div class="privacy">
             <input
               class="input-checkbox visually-hidden"
-              id="checkbox"
+              id="user-privacy"
               type="checkbox"
-              name="Policy"
-              value="button-agry"
+              name="user-privacy"
+              value="true"
             />
-            <label class="label-checkbox" for="checkbox"
+            <label class="label-checkbox" for="user-privacy"
               ><span class="text-checkbox"
                 ><svg class="icon-checkbox" width="10" height="8">
                   <use
