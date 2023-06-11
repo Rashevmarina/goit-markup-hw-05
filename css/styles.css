@@ -788,7 +788,6 @@ margin-bottom: 16px;
 .form {
     display: flex;
     flex-direction: column;
-    gap: 8px;
     padding-top: 0;
     border: none;
     max-width: 408px;
@@ -875,6 +874,7 @@ input::placeholder {
 
 .input-icon {
     position: absolute;
+    fill: #2E2F42;
     top: 50%;
     left: 16px;
     transform: translateY(-50%);
@@ -906,7 +906,7 @@ input::placeholder {
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
     border-radius: 4px;
     border: none; 
-    margin: 24px auto;
+    margin: 0 auto;
     cursor: pointer;
     transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
@@ -932,6 +932,9 @@ input::placeholder {
     line-height: 1.17;;
     letter-spacing: 0.04em;
     color: #8e8f99;
+    transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1),
+        border 250ms cubic-bezier(0.4, 0, 0.2, 1),
+        fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
     }
 
 .text-checkbox {
@@ -957,7 +960,12 @@ input::placeholder {
     letter-spacing: 0.04em;
     text-decoration-line: underline;
 }
-
+.input-checkbox:focus + .text-checkbox {
+    background-color:var(--accent-color);
+    border: #4D5AE5;
+    fill: #FFFFFF;
+  }
+ 
 .input-checkbox:checked + .label-checkbox > .text-checkbox {
   background-color: var(--active-accent-background-color);
   border: none;
@@ -967,12 +975,15 @@ input::placeholder {
         display: inline-block;
         border-radius: 2px;
         fill: #fcfcfc;
+        
 }
 
 /* ______footer input_________ */
 
 .footer-div-input {
 max-height: 80px;
+margin-left: 80px;
+
 }
 .form-subscribe {
     display: flex;
@@ -985,7 +996,7 @@ max-height: 80px;
     letter-spacing: 0.02em;
     line-height: 1.5;
     font-weight: 500;
-    margin-bottom: 16px;
+
 
 }
 .input-subscribe {
@@ -1006,13 +1017,13 @@ max-height: 80px;
 .input-subscribe::placeholder 
 {color: #FFFFFF;}
 
-.input-subscribe:focus,
-.input-subscribe:hover {
+.input-subscribe:focus {
     border: var(--accent-color);
 }
 
 .subscribe-icon {
     margin-left: 16px; 
+    fill: #FFFFFF;
 
 }
 .btn-subscribe {
@@ -1026,8 +1037,6 @@ max-height: 80px;
     Height: 40px;
     line-height: 1.5;
     font-weight: 500;
-    margin-left: 24px;
-    margin-bottom: 16px;
     background-color: #4D5AE5;
     border: none;
     border-radius: 4px;
