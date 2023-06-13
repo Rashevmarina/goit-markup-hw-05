@@ -516,7 +516,6 @@ body {
     color: var(--white-color);
     letter-spacing: 0.02em;
     line-height: 1.5;
-    width: 264px;
     font-weight: 500;
     margin-bottom: 16px;
 
@@ -960,11 +959,14 @@ input::placeholder {
     letter-spacing: 0.04em;
     text-decoration-line: underline;
 }
-.input-checkbox:focus + .text-checkbox {
-    background-color:var(--accent-color);
+.input-checkbox:focus + .label-checkbox > .text-checkbox {
+    border-color: var(--active-accent-background-color);
+}
+  .input-checkbox[type="checkbox"]:checked + label {
+    color:var(--accent-color);
     border: #4D5AE5;
     fill: #FFFFFF;
-  }
+}
  
 .input-checkbox:checked + .label-checkbox > .text-checkbox {
   background-color: var(--active-accent-background-color);
